@@ -31,4 +31,19 @@ if (-not (Select-String -Path $profilePath -Pattern "claude --resume" -Quiet -Er
     Write-Host "Resume alias already exists in $profilePath"
 }
 
+# --- GitHub Copilot settings ---
+$copilotDir = "$env:USERPROFILE\.copilot"
+New-Item -ItemType Directory -Path $copilotDir -Force | Out-Null
+
+foreach ($file in @("config.json", "permissions-config.json")) {
+    $targetPath = "$copilotDir\$file"
+    if ((Test-Path $targetPath) -and -not ((Get-Item $targetPath).Attributes -band [IO.FileAttributes]::ReparsePoint)) {
+        Write-Host "Backing up existing $file to $file.bak"
+        Copy-Item $targetPath "$copilotDir\$file.bak"
+    }
+    if (Test-Path $targetPath) { Remove-Item $targetPath }
+    New-Item -ItemType SymbolicLink -Path $targetPath -Target "$dotfilesDir\.copilot\$file"
+    Write-Host "Linked: $targetPath -> $dotfilesDir\.copilot\$file"
+}
+
 Write-Host "Done! Restart your shell to apply changes."

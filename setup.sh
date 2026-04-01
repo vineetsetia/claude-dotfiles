@@ -34,4 +34,17 @@ add_alias() {
 add_alias "$HOME/.bashrc"
 add_alias "$HOME/.zshrc"
 
+# --- GitHub Copilot settings ---
+COPILOT_DIR="$HOME/.copilot"
+mkdir -p "$COPILOT_DIR"
+
+for file in config.json permissions-config.json; do
+    if [ -f "$COPILOT_DIR/$file" ] && [ ! -L "$COPILOT_DIR/$file" ]; then
+        echo "Backing up existing $file to $file.bak"
+        cp "$COPILOT_DIR/$file" "$COPILOT_DIR/$file.bak"
+    fi
+    ln -sf "$DOTFILES_DIR/.copilot/$file" "$COPILOT_DIR/$file"
+    echo "Linked: $COPILOT_DIR/$file -> $DOTFILES_DIR/.copilot/$file"
+done
+
 echo "Done! Restart your shell or run: source ~/.bashrc"

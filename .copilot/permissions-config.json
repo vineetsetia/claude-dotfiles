@@ -1,0 +1,113 @@
+{
+  "locations": {
+    "C:\\Users\\vineset\\claude\\remove-users-from-dl": {
+      "tool_approvals": [
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "Get-Module"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "Install-Module"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "Set-Location",
+            ".\\Get-InactiveDLMembers.ps1"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "Connect-MgGraph"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "Import-Module",
+            "Write-Host"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "pip install"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python"
+          ]
+        }
+      ]
+    },
+    "C:\\Users\\vineset": {
+      "tool_approvals": [
+        {
+          "kind": "mcp",
+          "serverName": "workiq",
+          "toolName": "ask_work_iq"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "ConvertFrom-Json",
+            "ConvertTo-Json"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git fetch",
+            "git checkout",
+            "git pull"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "Out-File"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "Set-Location"
+          ]
+        }
+      ]
+    },
+    "C:\\loop_5_4\\office-bohemia": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "Test-NetConnection"
+          ]
+        }
+      ]
+    }
+  }
+}

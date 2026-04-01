@@ -1,0 +1,42 @@
+{
+  "marketplaces": {
+    "agency": {
+      "source": {
+        "source": "github",
+        "repo": "agency-microsoft/.github-private"
+      }
+    }
+  },
+  "banner": "never",
+  "trusted_folders": [
+    "C:\\WINDOWS\\system32",
+    "C:\\Users\\vineset\\CoPilot",
+    "C:\\users\\vineset\\copilot",
+    "C:\\Users\\vineset\\claude\\remove-users-from-dl",
+    "C:\\Users\\vineset",
+    "C:\\loop_5_4\\office-bohemia"
+  ],
+  "render_markdown": true,
+  "last_logged_in_user": {
+    "host": "https://github.com",
+    "login": "vineset_microsoft"
+  },
+  "logged_in_users": [
+    {
+      "host": "https://github.com",
+      "login": "vineset_microsoft"
+    }
+  ],
+  "staff": true,
+  "log_level": "all",
+  "show_reasoning": true,
+  "allowed_urls": [
+    "https://www.owiki.ms",
+    "https://domoreexp.visualstudio.com",
+    "https://oariashared.kusto.windows.net"
+  ],
+  "firstLaunchAt": "2026-03-11T00:00:00.000Z",
+  "asked_setup_terminals": [
+    "windows-terminal"
+  ]
+}
