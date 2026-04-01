@@ -11,6 +11,24 @@ NOTIFY=${CLAUDE_DOTFILES_NOTIFY:-true}
 
 log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" >> "$LOGFILE"; }
 
+# Copy live config files into dotfiles repo if they've changed
+copy_if_changed() {
+    local src="$1" dest="$2"
+    if [ -f "$src" ] && [ ! -L "$src" ]; then
+        if ! cmp -s "$src" "$dest" 2>/dev/null; then
+            cp "$src" "$dest"
+            log "UPDATED: copied $(basename "$src") from live config"
+        fi
+    fi
+}
+
+# Sync Claude settings
+copy_if_changed "$HOME/.claude/settings.json" "$DOTFILES_DIR/.claude/settings.json"
+
+# Sync Copilot settings
+copy_if_changed "$HOME/.copilot/config.json" "$DOTFILES_DIR/.copilot/config.json"
+copy_if_changed "$HOME/.copilot/permissions-config.json" "$DOTFILES_DIR/.copilot/permissions-config.json"
+
 # Fetch remote
 git fetch origin 2>/dev/null
 
