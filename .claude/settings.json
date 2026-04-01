@@ -1,196 +1,199 @@
 {
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-  },
-  "permissions": {
-    "defaultMode": "auto"
-  },
-  "model": "opus[1m]",
-  "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "curl.exe -sS --connect-timeout 2 --max-time 5 -H \"Content-Type: application/json\" --data-binary @- \"http://127.0.0.1:7823/hook\" 1>NUL 2>NUL"
-          },
-          {
-            "type": "command",
-            "command": "bash \"$HOME/claude/dotfiles/sync.sh\" 2>/dev/null || true"
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PostToolUseFailure": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 600
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "SubagentStart": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "SubagentStop": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PreCompact": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "TeammateIdle": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "TaskCompleted": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "http",
-            "url": "http://127.0.0.1:7823/hook",
-            "timeout": 10
-          }
-        ]
-      }
-    ]
-  },
+  "companyAnnouncements": [
+    "Claude Code on Windows can now run PowerShell natively. No more wrapping commands through git bash — Claude writes and executes PowerShell directly, with proper syntax and fewer escaping headaches. See https://code.claude.com/docs/en/tools-reference#powershell-tool to enable this."
+  ],
   "enabledPlugins": {
     "cricclubs-ground-stats@cricclubs-ground-stats": true
+  },
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "extraKnownMarketplaces": {
     "cricclubs-ground-stats": {
       "source": {
-        "source": "github",
-        "repo": "vineetsetia/arcl-cricclubs-ground-stats"
+        "repo": "vineetsetia/arcl-cricclubs-ground-stats",
+        "source": "github"
       }
     }
   },
   "forceLoginMethod": "console",
-  "skipDangerousModePermissionPrompt": true,
-  "skipAutoPermissionPrompt": true
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "timeout": 600,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "curl.exe -sS --connect-timeout 2 --max-time 5 -H \"Content-Type: application/json\" --data-binary @- \"http://127.0.0.1:7823/hook\" 1>NUL 2>NUL",
+            "type": "command"
+          },
+          {
+            "command": "bash \"$HOME/claude/dotfiles/sync.sh\" 2>/dev/null || true",
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "TaskCompleted": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "TeammateIdle": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "timeout": 10,
+            "type": "http",
+            "url": "http://127.0.0.1:7823/hook"
+          }
+        ],
+        "matcher": "*"
+      }
+    ]
+  },
+  "model": "opus[1m]",
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "skipAutoPermissionPrompt": true,
+  "skipDangerousModePermissionPrompt": true
 }
