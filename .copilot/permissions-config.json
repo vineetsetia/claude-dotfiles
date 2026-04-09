@@ -171,6 +171,16 @@
           "commandIdentifiers": [
             "yarn install"
           ]
+        },
+        {
+          "kind": "mcp",
+          "serverName": "bluebird",
+          "toolName": "search_file_paths"
+        },
+        {
+          "kind": "mcp",
+          "serverName": "bluebird",
+          "toolName": "get_file_content"
         }
       ]
     }
