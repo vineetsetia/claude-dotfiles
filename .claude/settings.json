@@ -1,196 +1,197 @@
 {
-  "enabledPlugins": {
-    "cricclubs-ground-stats@cricclubs-ground-stats": true
-  },
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
-  "extraKnownMarketplaces": {
-    "cricclubs-ground-stats": {
-      "source": {
-        "repo": "vineetsetia/arcl-cricclubs-ground-stats",
-        "source": "github"
-      }
-    }
+  "permissions": {
+    "defaultMode": "auto"
   },
-  "forceLoginMethod": "console",
+  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "PermissionRequest": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 600,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 600
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "PostToolUse": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "PostToolUseFailure": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "PreCompact": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "PreToolUse": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "SessionEnd": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "SessionStart": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "command": "curl.exe -sS --connect-timeout 2 --max-time 5 -H \"Content-Type: application/json\" --data-binary @- \"http://127.0.0.1:7823/hook\" 1>NUL 2>NUL",
-            "type": "command"
+            "type": "command",
+            "command": "curl.exe -sS --connect-timeout 2 --max-time 5 -H \"Content-Type: application/json\" --data-binary @- \"http://127.0.0.1:7823/hook\" 1>NUL 2>NUL"
           },
           {
-            "command": "bash \"$HOME/claude/dotfiles/sync.sh\" 2>/dev/null || true",
-            "type": "command"
+            "type": "command",
+            "command": "bash \"$HOME/claude/dotfiles/sync.sh\" 2>/dev/null || true"
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "Stop": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "SubagentStart": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "SubagentStop": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "TaskCompleted": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "TeammateIdle": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "UserPromptSubmit": [
       {
+        "matcher": "*",
         "hooks": [
           {
-            "timeout": 10,
             "type": "http",
-            "url": "http://127.0.0.1:7823/hook"
+            "url": "http://127.0.0.1:7823/hook",
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ]
   },
-  "model": "opus[1m]",
-  "permissions": {
-    "defaultMode": "auto"
+  "enabledPlugins": {
+    "cricclubs-ground-stats@cricclubs-ground-stats": true,
+    "skill-creator@claude-plugins-official": true
   },
-  "skipAutoPermissionPrompt": true,
-  "skipDangerousModePermissionPrompt": true
+  "extraKnownMarketplaces": {
+    "cricclubs-ground-stats": {
+      "source": {
+        "source": "github",
+        "repo": "vineetsetia/arcl-cricclubs-ground-stats"
+      }
+    }
+  },
+  "forceLoginMethod": "console",
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true
 }
