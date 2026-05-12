@@ -30,5 +30,15 @@
       "origin": "*",
       "level": "repo_and_user"
     }
+  ],
+  "installedPlugins": [
+    {
+      "name": "connect-contributions",
+      "marketplace": "bohemia-marketplace",
+      "version": "1.0.0",
+      "installed_at": "2026-05-12T01:49:59.434Z",
+      "enabled": true,
+      "cache_path": "C:\\Users\\vineset\\.copilot\\installed-plugins\\bohemia-marketplace\\connect-contributions"
+    }
   ]
 }
